@@ -27,6 +27,7 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
+        <module>cdl-core</module>
         <module>cdl-business</module>
         <module>cdl-rest</module>
         <module>cdl-web</module>
