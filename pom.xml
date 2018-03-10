@@ -10,14 +10,18 @@
         <version>2.0.0.RELEASE</version>
     </parent>
 
+    <modules>
+        <module>cdl-core</module>
+        <module>cdl-business</module>
+        <module>cdl-rest</module>
+        <module>cdl-web</module>
+    </modules>
+
     <properties>
         <!-- Specify Java Compiler Version -->
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-
         <!-- Spring -->
-
-
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
@@ -26,12 +30,6 @@
     <artifactId>cdl-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>cdl-core</module>
-        <module>cdl-business</module>
-        <module>cdl-rest</module>
-        <module>cdl-web</module>
-    </modules>
 
     <dependencies>
         <dependency>
@@ -83,6 +81,17 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <directory>cdl-web/target</directory>
+                        </resource>
+                    </webResources>
+                </configuration>
             </plugin>
         </plugins>
     </build>

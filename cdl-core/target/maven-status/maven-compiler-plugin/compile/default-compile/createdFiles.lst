@@ -1,0 +1,7 @@
+fr/pawo/partners/cdl/domain/Groupe.class
+fr/pawo/partners/cdl/repository/RoleRepository.class
+fr/pawo/partners/cdl/repository/UserRepository.class
+fr/pawo/partners/cdl/domain/User.class
+fr/pawo/partners/cdl/CoreConfig.class
+fr/pawo/partners/cdl/domain/Role.class
+fr/pawo/partners/cdl/repository/GroupeRepository.class
