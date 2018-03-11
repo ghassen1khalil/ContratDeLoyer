@@ -10,6 +10,6 @@ public class HelloRestController {
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String sayHello() {
-        return "Hello World";
+        return "Hello World - Rest API";
     }
 }
