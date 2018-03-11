@@ -1,6 +1,7 @@
 package fr.pawo.partners.cdl.config;
 
 import fr.pawo.partners.cdl.domain.Role;
+import fr.pawo.partners.cdl.domain.User;
 import fr.pawo.partners.cdl.repository.RoleRepository;
 import fr.pawo.partners.cdl.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,15 +37,21 @@ public class CoreConfig implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
 //        accountService.saveRole(new Role(null,"USER",null));
-//        Role r1 = new Role("ADMIN");
+//        Role admin = new Role(null,"ADMIN",null);
+//        Role user = new Role(null,"USER",null);
+//        Role superadmin= new Role(null,"SUPER_ADMIN",null);
 //
 //        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 //        String pass = bCryptPasswordEncoder.encode("admin");
 //
-//        User u1 = new User("admin",pass,r1,true);
-//        User u2 = new User("dali2",pass,r1,true);
-//        this.roleReposetory.save(r1);
+//        User u1 = new User(null,"admin",pass,true,admin,null);
+//        User u2 = new User(null,"user",pass,true,user,null);
+//        User u3 = new User(null,"super_admin",pass,true,superadmin,null);
+//        this.roleReposetory.save(admin);
+//        this.roleReposetory.save(user);
+//        this.roleReposetory.save(superadmin);
 //        this.userReposetory.save(u1);
 //        this.userReposetory.save(u2);
+//        this.userReposetory.save(u3);
     }
 }
