@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 @RepositoryRestResource(collectionResourceRel = "user", path = "user")
 public interface UserRepository extends JpaRepository<User, Long>, PagingAndSortingRepository<User, Long> {
+    public User findByUserName(String username);
 }

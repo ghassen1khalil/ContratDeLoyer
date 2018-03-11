@@ -11,7 +11,7 @@ import java.util.List;
 public class Groupe implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int  idGroupe;
+    private Long  idGroupe;
     private String label;
     @ManyToMany(mappedBy = "groupes")
     private List<User> users;

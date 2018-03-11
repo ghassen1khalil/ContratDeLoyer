@@ -13,23 +13,20 @@ import java.util.List;
 public class User implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idUser;
+    private Long idUser;
     private String userName;
     private String password;
     private boolean active;
     @ManyToOne
     @JoinColumn(name = "idRole")
     private Role role;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_groupe", joinColumns = @JoinColumn(name = "idUser"),
             inverseJoinColumns = @JoinColumn(name = "idGroupe"))
     private List<Groupe> groupes;
 
 
-    public User(String userName, String password, Role role, boolean active) {
-        this.userName = userName;
-        this.password = password;
-        this.role = role;
-        this.active=active;
-    }
+
+
+
 }
