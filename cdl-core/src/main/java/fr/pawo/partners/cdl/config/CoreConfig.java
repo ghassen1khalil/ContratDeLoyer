@@ -17,7 +17,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = {"fr.pawo.partners.cdl"})
 @EntityScan(basePackages = {"fr.pawo.partners.cdl"})
-@ComponentScan(basePackages = {"fr.pawo.partners.cdl","security"})
+@ComponentScan(basePackages = {"fr.pawo.partners.cdl"})
 public class CoreConfig implements CommandLineRunner {
     @Autowired
     private UserRepository userReposetory;

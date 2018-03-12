@@ -15,13 +15,13 @@
         <dependency>
             <groupId>fr.pawo.partners.cdl</groupId>
             <artifactId>cdl-web</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
 
         <!--<dependency>-->
             <!--<groupId>fr.pawo.partners.cdl</groupId>-->
             <!--<artifactId>cdl-business</artifactId>-->
-            <!--<version>1.0-SNAPSHOT</version>-->
+            <!--<version>${project.version}</version>-->
         <!--</dependency>-->
     </dependencies>
 </project>
