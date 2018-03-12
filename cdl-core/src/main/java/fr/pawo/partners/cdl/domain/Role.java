@@ -12,12 +12,9 @@ import java.util.List;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idRole;
-    private String label;
+    private Long idRole;
+    private String roleName;
     @OneToMany(mappedBy = "role")
     private List<User> user;
 
-    public Role(String label) {
-        this.label = label;
-    }
 }

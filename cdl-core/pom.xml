@@ -10,6 +10,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cdl-core</artifactId>
+    <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>fr.pawo.partners.cdl</groupId>
+            <artifactId>cdl-web</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
-
+        <!--<dependency>-->
+            <!--<groupId>fr.pawo.partners.cdl</groupId>-->
+            <!--<artifactId>cdl-business</artifactId>-->
+            <!--<version>${project.version}</version>-->
+        <!--</dependency>-->
+    </dependencies>
 </project>
