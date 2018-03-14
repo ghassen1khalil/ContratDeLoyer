@@ -1,4 +1,4 @@
-package service;
+package fr.pawo.partners.cdl.service;
 
 
 import fr.pawo.partners.cdl.domain.Role;
@@ -33,10 +33,9 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void addRoleToUser(String userName, String roleName) {
-        Role role =roleRepository.findByRoleName(roleName);
-        User user = userRepository.findByUserName(userName);
-        user.getRole().setRoleName(roleName);
+    public void addRoleToUser(User user, Role role) {
+          user.setRole(role);
+          userRepository.save(user);
     }
 
     @Override
