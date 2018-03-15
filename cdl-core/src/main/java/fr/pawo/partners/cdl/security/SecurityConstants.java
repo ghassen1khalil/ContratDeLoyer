@@ -1,4 +1,4 @@
-package fr.pawo.partners.cdl.security;
+package security;
 
 public class SecurityConstants {
     public static final String  SECRET = "dali.laaroussi@gmail.com";

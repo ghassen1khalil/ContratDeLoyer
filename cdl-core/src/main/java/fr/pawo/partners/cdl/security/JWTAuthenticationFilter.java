@@ -1,14 +1,16 @@
 
-package fr.pawo.partners.cdl.security;
+package security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import fr.pawo.partners.cdl.domain.User;
+import entity.AppUser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.servlet.FilterChain;
@@ -27,36 +29,35 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         this.authenticationManager = authenticationManager;
     }
 
+
+
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-        User user =null;
-
+        AppUser appUser =null;
         try {
-            user = new ObjectMapper().readValue(request.getInputStream(),User.class);
+            appUser = new ObjectMapper().readValue(request.getInputStream(),AppUser.class);
         } catch (Exception e) {
             e.printStackTrace();
         }
         System.out.println("*******");
-        System.out.println("username: "+user.getUserName());
-        System.out.println("password: "+user.getPassword());
+        System.out.println("username: "+appUser.getUserName());
+        System.out.println("password: "+appUser.getPassword());
         System.out.println("*******");
         return authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(user.getUserName(),user.getPassword()));
+                new UsernamePasswordAuthenticationToken(appUser.getUserName(),appUser.getPassword()));
     }
 
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response,
                                             FilterChain chain,
                                             Authentication authResult) throws IOException, ServletException {
-        org.springframework.security.core.userdetails.User springUser =
-                (org.springframework.security.core.userdetails.User) authResult.getPrincipal();
+        User springUser =(User) authResult.getPrincipal();
         String jwt = Jwts.builder()
                 .setSubject(springUser.getUsername())
                 .setExpiration(new Date(System.currentTimeMillis()+SecurityConstants.EXPIRATION_TIME))
                 .signWith(SignatureAlgorithm.HS256,SecurityConstants.SECRET)
-                .claim("role",springUser.getAuthorities())
+                .claim("roles",springUser.getAuthorities())
                 .compact();
-
         response.addHeader(SecurityConstants.HEADER_STRING,SecurityConstants.TOKEN_PREFIX+jwt);
         super.successfulAuthentication(request, response, chain, authResult);
     }

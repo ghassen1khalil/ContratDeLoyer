@@ -1,4 +1,4 @@
-package fr.pawo.partners.cdl.security;
+package security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -6,7 +6,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -44,7 +43,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
                 .parseClaimsJws(jwtToken.replace(SecurityConstants.TOKEN_PREFIX,""))
                 .getBody();
         String username=claims.getSubject();
-        ArrayList<Map<String, String>> roles=(ArrayList<Map<String, String>>) claims.get("role");
+        ArrayList<Map<String, String>> roles=(ArrayList<Map<String, String>>) claims.get("roles");
         Collection<GrantedAuthority> authorities=new ArrayList<>();
          roles.forEach(r->{
             authorities.add(new SimpleGrantedAuthority(r.get("authority"))); });
