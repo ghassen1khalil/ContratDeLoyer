@@ -1,4 +1,4 @@
-package security;
+package fr.pawo.partners.cdl.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -30,27 +30,31 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
                         + "Access-Control-Request-Headers,"
                         + "Authorization");
         response.addHeader("Access-Control-Expose-Headers","Access-Control-Allow-Origin, "
-        + "Access-Control-Allow-Credentials,Authorization");
+        + "Access-Control-Allow-Credentials, Authorization");
+        if(request.getMethod().equals("OPTIONS")){
+            response.setStatus(HttpServletResponse.SC_OK);
+        }else{
+            String jwtToken = request.getHeader(SecurityConstants.HEADER_STRING);
+            if(jwtToken==null || !jwtToken.startsWith(SecurityConstants.TOKEN_PREFIX)){
+                filterChain.doFilter(request,response);
+                return;
+            }
 
-        String jwtToken = request.getHeader(SecurityConstants.HEADER_STRING);
-        if(jwtToken==null || !jwtToken.startsWith(SecurityConstants.TOKEN_PREFIX)){
-            filterChain.doFilter(request,response);
-            return;
+            Claims claims= Jwts.parser()
+                    .setSigningKey(SecurityConstants.SECRET)
+                    .parseClaimsJws(jwtToken.replace(SecurityConstants.TOKEN_PREFIX,""))
+                    .getBody();
+            String username=claims.getSubject();
+            ArrayList<Map<String, String>> roles=(ArrayList<Map<String, String>>) claims.get("role");
+            Collection<GrantedAuthority> authorities=new ArrayList<>();
+            roles.forEach(r->{
+                authorities.add(new SimpleGrantedAuthority(r.get("authority"))); });
+            UsernamePasswordAuthenticationToken authenticationToken=
+                    new UsernamePasswordAuthenticationToken(username, null,authorities);
+            SecurityContextHolder.getContext().setAuthentication(authenticationToken) ;
+            filterChain.doFilter(request, response);
         }
 
-        Claims claims= Jwts.parser()
-                .setSigningKey(SecurityConstants.SECRET)
-                .parseClaimsJws(jwtToken.replace(SecurityConstants.TOKEN_PREFIX,""))
-                .getBody();
-        String username=claims.getSubject();
-        ArrayList<Map<String, String>> roles=(ArrayList<Map<String, String>>) claims.get("roles");
-        Collection<GrantedAuthority> authorities=new ArrayList<>();
-         roles.forEach(r->{
-            authorities.add(new SimpleGrantedAuthority(r.get("authority"))); });
-         UsernamePasswordAuthenticationToken authenticationToken=
-                 new UsernamePasswordAuthenticationToken(username, null,authorities);
-         SecurityContextHolder.getContext().setAuthentication(authenticationToken) ;
-         filterChain.doFilter(request, response);
 
     }
 }

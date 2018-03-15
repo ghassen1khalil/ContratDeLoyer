@@ -1,11 +1,10 @@
 
-package security;
+package fr.pawo.partners.cdl.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import entity.AppUser;
+import fr.pawo.partners.cdl.domain.AppUser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -54,11 +53,11 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         User springUser =(User) authResult.getPrincipal();
         String jwt = Jwts.builder()
                 .setSubject(springUser.getUsername())
-                .setExpiration(new Date(System.currentTimeMillis()+SecurityConstants.EXPIRATION_TIME))
-                .signWith(SignatureAlgorithm.HS256,SecurityConstants.SECRET)
-                .claim("roles",springUser.getAuthorities())
+                .setExpiration(new Date(System.currentTimeMillis()+ SecurityConstants.EXPIRATION_TIME))
+                .signWith(SignatureAlgorithm.HS256, SecurityConstants.SECRET)
+                .claim("role",springUser.getAuthorities())
                 .compact();
-        response.addHeader(SecurityConstants.HEADER_STRING,SecurityConstants.TOKEN_PREFIX+jwt);
+        response.addHeader(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX+jwt);
         super.successfulAuthentication(request, response, chain, authResult);
     }
 

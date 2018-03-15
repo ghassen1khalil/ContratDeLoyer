@@ -11,12 +11,6 @@
 
     <artifactId>cdl-rest</artifactId>
     <packaging>jar</packaging>
-    <dependencies>
-        <!--<dependency>-->
-            <!--<groupId>fr.pawo.partners.cdl</groupId>-->
-            <!--<artifactId>cdl-core</artifactId>-->
-            <!--<version>1.0-SNAPSHOT</version>-->
-        <!--</dependency>-->
-    </dependencies>
+
 
 </project>

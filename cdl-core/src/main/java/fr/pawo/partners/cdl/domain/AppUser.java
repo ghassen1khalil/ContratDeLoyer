@@ -10,20 +10,20 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Data @AllArgsConstructor @NoArgsConstructor
-public class User implements Serializable{
+@Data
+@AllArgsConstructor @NoArgsConstructor
+public class AppUser implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idUser;
+    @GeneratedValue()
+    private Long id;
     private String userName;
     private String password;
     private boolean active;
     @ManyToOne
     @JoinColumn(name = "idRole")
-    private Role role;
+    private AppRole role;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_groupe", joinColumns = @JoinColumn(name = "idUser"),
             inverseJoinColumns = @JoinColumn(name = "idGroupe"))
     private List<Groupe> groupes;
-
 }

@@ -1,8 +1,8 @@
 package fr.pawo.partners.cdl.service;
 
 
-import fr.pawo.partners.cdl.domain.Role;
-import fr.pawo.partners.cdl.domain.User;
+import fr.pawo.partners.cdl.domain.AppRole;
+import fr.pawo.partners.cdl.domain.AppUser;
 import fr.pawo.partners.cdl.repository.RoleRepository;
 import fr.pawo.partners.cdl.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,25 +21,25 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     private RoleRepository roleRepository;
     @Override
-    public User saveUser(User user) {
+    public AppUser saveUser(AppUser user) {
         String hashPW=bCryptPasswordEncoder.encode(user.getPassword());
         user.setPassword(hashPW);
         return userRepository.save(user);
     }
 
     @Override
-    public Role saveRole(Role role) {
+    public AppRole saveRole(AppRole role) {
         return roleRepository.save(role);
     }
 
     @Override
-    public void addRoleToUser(User user, Role role) {
+    public void addRoleToUser(AppUser user, AppRole role) {
           user.setRole(role);
           userRepository.save(user);
     }
 
     @Override
-    public User findUserByUserName(String userName) {
+    public AppUser findUserByUserName(String userName) {
         return userRepository.findByUserName(userName);
     }
 }
