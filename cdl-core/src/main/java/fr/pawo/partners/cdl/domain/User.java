@@ -1,5 +1,6 @@
 package fr.pawo.partners.cdl.domain;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,9 +25,5 @@ public class User implements Serializable{
     @JoinTable(name = "user_groupe", joinColumns = @JoinColumn(name = "idUser"),
             inverseJoinColumns = @JoinColumn(name = "idGroupe"))
     private List<Groupe> groupes;
-
-
-
-
 
 }

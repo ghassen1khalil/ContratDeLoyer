@@ -1,9 +1,10 @@
 package fr.pawo.partners.cdl.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -16,10 +17,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+
     @Autowired
     private UserDetailsService userDetailsService;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+
 //    @Autowired
 //    private DataSource dataSource;
 
@@ -36,14 +40,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
-
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin();
+//        http.formLogin();
         http.csrf().disable();
         //pour dire à spring security que tous les rquete doit être authentifier
-        http.authorizeRequests().anyRequest().authenticated();
+//        http.authorizeRequests().anyRequest().authenticated();
         http.authorizeRequests().antMatchers("/login/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.POST,"/users/**").hasAuthority("ADMIN");
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

@@ -19,10 +19,11 @@ import java.io.IOException;
 import java.util.Date;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+
     private AuthenticationManager authenticationManager;
 
-
     public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {
+        super();
         this.authenticationManager = authenticationManager;
     }
 
@@ -51,11 +52,13 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 (org.springframework.security.core.userdetails.User) authResult.getPrincipal();
         String jwt = Jwts.builder()
                 .setSubject(springUser.getUsername())
-                .setExpiration(new Date(System.currentTimeMillis()+SecurityConstants.EXPIRTION_TIME))
+                .setExpiration(new Date(System.currentTimeMillis()+SecurityConstants.EXPIRATION_TIME))
                 .signWith(SignatureAlgorithm.HS256,SecurityConstants.SECRET)
                 .claim("role",springUser.getAuthorities())
                 .compact();
+
         response.addHeader(SecurityConstants.HEADER_STRING,SecurityConstants.TOKEN_PREFIX+jwt);
         super.successfulAuthentication(request, response, chain, authResult);
     }
+
 }

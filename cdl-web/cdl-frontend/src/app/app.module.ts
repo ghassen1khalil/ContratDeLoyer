@@ -8,22 +8,31 @@ import { LoginComponent } from './login/login.component';
 import {RouterModule, Routes} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import {Authentification} from "../service/authentification";
+import {AuthenticationServie} from "../service/authenticationservice";
+import { UsersComponent } from './users/users.component';
+import { GroupesComponent } from './groupes/groupes.component';
+import { RolesComponent } from './roles/roles.component';
 
 const appRoutes:Routes=[
   {path:"login",component:LoginComponent},
-  {path:"",redirectTo:"/login",pathMatch:'full'}
+  {path:"groupes",component:GroupesComponent},
+  {path:"roles",component:RolesComponent},
+  {path:"users",component:UsersComponent},
+  {path:"",redirectTo:"/login",pathMatch:"full"}
 ];
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    UsersComponent,
+    GroupesComponent,
+    RolesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,RouterModule.forRoot(appRoutes),FormsModule,HttpClientModule
   ],
-  providers: [Authentification],
+  providers: [AuthenticationServie],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
