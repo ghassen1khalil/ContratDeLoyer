@@ -14,9 +14,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackages = {"fr.pawo.partners.cdl"})
-@EntityScan(basePackages = {"fr.pawo.partners.cdl"})
-@ComponentScan(basePackages = {"fr.pawo.partners.cdl","fr.pawo.partners.cdl.business","fr.pawo.partners.cdl.rest"})
 public class BusinessConfig implements CommandLineRunner  {
     public static void main(String[] args) {
         SpringApplication.run(BusinessConfig.class, args);

@@ -24,11 +24,6 @@
             <artifactId>cdl-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>fr.pawo.partners.cdl</groupId>
-            <artifactId>cdl-rest</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
 

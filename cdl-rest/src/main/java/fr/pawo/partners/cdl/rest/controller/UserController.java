@@ -5,6 +5,7 @@ import fr.pawo.partners.cdl.core.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class UserController {
         return userRepository.findAll();
     }
     @PostMapping("/user")
-    public void saveUser(AppUser user) {
+    public void saveUser(@RequestBody  AppUser user) {
          userRepository.save(user);
     }
 

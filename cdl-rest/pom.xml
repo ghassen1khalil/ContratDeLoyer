@@ -18,6 +18,11 @@
             <artifactId>cdl-core</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>fr.pawo.partners.cdl</groupId>
+            <artifactId>cdl-business</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 
