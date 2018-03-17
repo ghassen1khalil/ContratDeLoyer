@@ -16,7 +16,7 @@ import java.util.List;
 public class AppRole {
     @Id
     @GeneratedValue()
-    private Long id;
+    private Long idRole;
     private String roleName;
     @OneToMany(mappedBy = "role")
     private List<AppUser> user;
