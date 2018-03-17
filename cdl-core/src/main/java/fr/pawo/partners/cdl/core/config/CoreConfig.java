@@ -28,10 +28,7 @@ public class CoreConfig implements CommandLineRunner {
         SpringApplication.run(CoreConfig.class, args);
     }
 
-    @Bean
-    public BCryptPasswordEncoder getBCPE() {
-        return new BCryptPasswordEncoder();
-    }
+
 
     @Override
     public void run(String... args) {

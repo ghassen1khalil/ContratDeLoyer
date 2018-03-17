@@ -1,4 +1,4 @@
-package fr.pawo.partners.cdl.rest.config;
+package fr.pawo.partners.cdl.rest.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
