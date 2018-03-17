@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+import {Authentification} from "../../service/authentification";
 
 @Component({
   selector: 'app-user',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-
-  constructor() { }
+  users;
+  constructor(private authService:Authentification, private router:Router) { }
 
   ngOnInit() {
+
+    this.authService.getUsers()
+      .subscribe(data=> {
+          this.users  = data;
+        },
+        err=>{
+          this.router.navigateByUrl('/login');
+        })
+
   }
 
 }

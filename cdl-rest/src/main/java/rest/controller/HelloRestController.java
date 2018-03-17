@@ -11,7 +11,7 @@ import java.util.List;
 public class HelloRestController {
 
 
-    @RequestMapping(value = "/dali", method = RequestMethod.GET)
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String sayHello() {
         return "Hello World - Rest API";
     }
