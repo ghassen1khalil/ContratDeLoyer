@@ -22,5 +22,8 @@ export class UserComponent implements OnInit {
         })
 
   }
+  onNewUser(){
+    this.router.navigateByUrl('/new-user')
+  }
 
 }

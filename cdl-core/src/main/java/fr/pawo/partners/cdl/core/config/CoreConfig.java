@@ -19,10 +19,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EntityScan(basePackages = {"fr.pawo.partners.cdl"})
 @ComponentScan(basePackages = {"fr.pawo.partners.cdl"})
 public class CoreConfig implements CommandLineRunner {
-    @Autowired
-    private UserRepository userReposetory;
-    @Autowired
-    private RoleRepository roleReposetory;
+
 
     public static void main(String[] args) {
         SpringApplication.run(CoreConfig.class, args);
@@ -33,20 +30,6 @@ public class CoreConfig implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
-        AppRole admin = new AppRole(null, "ADMIN", null);
-        AppRole user = new AppRole(null, "USER", null);
-        AppRole superadmin = new AppRole(null, "SUPER_ADMIN", null);
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        String pass = bCryptPasswordEncoder.encode("admin");
 
-        AppUser u1 = new AppUser(null, "admin", pass, true, admin, null);
-        AppUser u2 = new AppUser(null, "user", pass, true, user, null);
-        AppUser u3 = new AppUser(null, "super_admin", pass, true, superadmin, null);
-        this.roleReposetory.save(admin);
-        this.roleReposetory.save(user);
-        this.roleReposetory.save(superadmin);
-        this.userReposetory.save(u1);
-        this.userReposetory.save(u2);
-        this.userReposetory.save(u3);
     }
 }

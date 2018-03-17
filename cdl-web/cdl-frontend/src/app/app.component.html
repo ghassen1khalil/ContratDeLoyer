@@ -1,3 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-
+<div class="container">
+  <button class="btn btn-danger" routerLink="user" *ngIf="authService.isAdmin()"> user</button>
+</div>
 <router-outlet></router-outlet>

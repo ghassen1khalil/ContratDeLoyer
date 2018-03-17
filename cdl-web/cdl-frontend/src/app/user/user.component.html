@@ -1,4 +1,6 @@
 <div class="container">
+  <button class="btn btn-danger" (click)="onNewUser()" *ngIf="authService.isAdmin()"> new user</button>
+  <br/><br/>
   <table class="table table-striped">
     <tr>
       <th>ID</th><th>User Name</th>
