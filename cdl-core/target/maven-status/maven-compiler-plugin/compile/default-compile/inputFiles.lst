@@ -1,7 +1,15 @@
-/Users/ghassen/Desktop/Workspace/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/domain/User.java
-/Users/ghassen/Desktop/Workspace/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/domain/Role.java
-/Users/ghassen/Desktop/Workspace/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/config/CoreConfig.java
-/Users/ghassen/Desktop/Workspace/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/repository/UserRepository.java
-/Users/ghassen/Desktop/Workspace/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/repository/RoleRepository.java
-/Users/ghassen/Desktop/Workspace/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/repository/GroupeRepository.java
-/Users/ghassen/Desktop/Workspace/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/domain/Groupe.java
+/Users/ghassen/Desktop/Workspace/Workpace Pawo/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/core/security/SecurityConstants.java
+/Users/ghassen/Desktop/Workspace/Workpace Pawo/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/core/security/JWTAuthorizationFilter.java
+/Users/ghassen/Desktop/Workspace/Workpace Pawo/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/core/security/JWTAuthenticationFilter.java
+/Users/ghassen/Desktop/Workspace/Workpace Pawo/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/core/service/AccountService.java
+/Users/ghassen/Desktop/Workspace/Workpace Pawo/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/core/service/UserDetailsServiceImpl.java
+/Users/ghassen/Desktop/Workspace/Workpace Pawo/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/core/repository/GroupeRepository.java
+/Users/ghassen/Desktop/Workspace/Workpace Pawo/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/core/config/CoreConfig.java
+/Users/ghassen/Desktop/Workspace/Workpace Pawo/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/core/repository/UserRepository.java
+/Users/ghassen/Desktop/Workspace/Workpace Pawo/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/core/domain/AppRole.java
+/Users/ghassen/Desktop/Workspace/Workpace Pawo/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/core/security/SecurityConfig.java
+/Users/ghassen/Desktop/Workspace/Workpace Pawo/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/core/controller/UserController.java
+/Users/ghassen/Desktop/Workspace/Workpace Pawo/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/core/domain/AppUser.java
+/Users/ghassen/Desktop/Workspace/Workpace Pawo/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/core/repository/RoleRepository.java
+/Users/ghassen/Desktop/Workspace/Workpace Pawo/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/core/domain/Groupe.java
+/Users/ghassen/Desktop/Workspace/Workpace Pawo/ContratDeLoyer/cdl-core/src/main/java/fr/pawo/partners/cdl/core/service/AccountServiceImpl.java

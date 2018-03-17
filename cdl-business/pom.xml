@@ -12,5 +12,13 @@
     <artifactId>cdl-business</artifactId>
     <packaging>jar</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>fr.pawo.partners.cdl</groupId>
+            <artifactId>cdl-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
