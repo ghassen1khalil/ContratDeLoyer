@@ -43,9 +43,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        //http.formLogin();
         http.csrf().disable();
-        /*pour dire à spring security que tous les rquete doit être authentifier
+        /*http.formLogin();
+        pour dire à spring security que tous les rquete doit être authentifier
         http.authorizeRequests().anyRequest().authenticated();
         http.authorizeRequests().antMatchers("/login/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.POST,"/tasks/**").hasAuthority("ADMIN");*/

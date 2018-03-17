@@ -9,7 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>fr.pawo.partners.cdl</groupId>
     <artifactId>cdl-core</artifactId>
     <packaging>jar</packaging>
+    <name>core</name>
+    <url>http://maven.apache.org</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
 </project>
