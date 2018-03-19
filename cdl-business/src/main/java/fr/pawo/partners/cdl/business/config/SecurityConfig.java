@@ -48,15 +48,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         /*http.formLogin();
         pour dire à spring security que tous les rquete doit être authentifier
         http.authorizeRequests().anyRequest().authenticated();
-        http.authorizeRequests().antMatchers("/login/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.POST,"/tasks/**").hasAuthority("ADMIN");*/
+        http.authorizeRequests().antMatchers("/login/**").permitAll();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilter(new JWTAuthenticationFilter(authenticationManager()));
         http.addFilterBefore(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
-    @Bean
-    public BCryptPasswordEncoder getBCPE() {
-        return new BCryptPasswordEncoder();
-    }
+
 }

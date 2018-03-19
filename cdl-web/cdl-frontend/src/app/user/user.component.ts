@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {Authentification} from "../../service/authentification";
+import {UserService} from "../../service/user.service";
 
 @Component({
   selector: 'app-user',
@@ -9,11 +10,11 @@ import {Authentification} from "../../service/authentification";
 })
 export class UserComponent implements OnInit {
   users;
-  constructor(private authService:Authentification, private router:Router) { }
+  constructor(private userService:UserService, private router:Router) { }
 
   ngOnInit() {
 
-    this.authService.getUsers()
+    this.userService.getUsers()
       .subscribe(data=> {
           this.users  = data;
         },

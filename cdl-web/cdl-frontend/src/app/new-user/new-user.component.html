@@ -10,7 +10,12 @@
           <input class="form-control" type="text" name="userName" ngModel="" required>
           <label class="control-label"> Password:</label>
           <input class="form-control" type="text" name="password" ngModel="" required>
+         <select ngModel=""  name="idRole">
+            <option *ngFor="let r of roles" value={{r.idRole}} >{{r.roleName}}</option>
+          </select>
         </div>
+
+
         <button class="btn btn-danger" type="submit" >save</button>
       </form>
     </div>
