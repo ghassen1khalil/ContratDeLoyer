@@ -6,3 +6,6 @@
 .idea/gradle.xml
 .idea/dictionaries
 .idea/libraries
+.DS_Store
+*.DS_Store
+/*/target/*
