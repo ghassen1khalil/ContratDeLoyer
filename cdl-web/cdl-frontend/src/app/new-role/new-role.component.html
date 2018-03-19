@@ -1,0 +1,16 @@
+<div class="row col-md-6">
+  <div>
+    <br/>
+    <div class="panel panel-default"></div>
+    <div class="panel-heading" new user></div>
+    <div class="panel-body">
+      <form #f="ngForm" (ngSubmit)="onSaveRole(f.value)">
+        <div class="form-group">
+          <label class="control-label"> Role Name:</label>
+          <input class="form-control" type="text" name="roleName" ngModel="" required>
+        </div>
+        <button class="btn btn-danger" type="submit" >save</button>
+      </form>
+    </div>
+  </div>
+</div>

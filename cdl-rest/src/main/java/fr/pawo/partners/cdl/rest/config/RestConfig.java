@@ -12,9 +12,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
-@EnableJpaRepositories(basePackages = {"fr.pawo.partners.cdl"})
 @EntityScan(basePackages = {"fr.pawo.partners.cdl"})
-@ComponentScan(basePackages = {"fr.pawo.partners.cdl",})
+@EnableJpaRepositories(basePackages = {"fr.pawo.partners.cdl"})
+@ComponentScan(basePackages = {"fr.pawo.partners.cdl"})
 public class RestConfig {
 
     public static void main(String[] args) {

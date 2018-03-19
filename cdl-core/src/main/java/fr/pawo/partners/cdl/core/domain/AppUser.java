@@ -2,6 +2,7 @@ package fr.pawo.partners.cdl.core.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -72,7 +73,7 @@ public class AppUser implements Serializable {
     public AppRole getRole() {
         return role;
     }
-
+    @JsonSetter
     public void setRole(AppRole role) {
         this.role = role;
     }
