@@ -12,6 +12,9 @@
     <artifactId>cdl-web</artifactId>
     <packaging>jar</packaging>
 
+
+
+
     <build>
         <finalName>cdl-frontend</finalName>
         <plugins>

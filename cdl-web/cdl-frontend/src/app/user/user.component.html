@@ -1,0 +1,13 @@
+<div class="container">
+  <button class="btn btn-danger" (click)="onNewUser()"> new user</button>
+  <br/><br/>
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th><th>User Name</th><th>Role</th>
+    <tr *ngFor="let u of users">
+      <td>{{u.idUser}}</td>
+      <td>{{u.userName}}</td>
+      <td>{{u.userName}}</td>
+    </tr>
+  </table>
+</div>

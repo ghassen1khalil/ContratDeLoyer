@@ -9,8 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>fr.pawo.partners.cdl</groupId>
     <artifactId>cdl-business</artifactId>
     <packaging>jar</packaging>
+    <name>business</name>
+    <url>http://maven.apache.org</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -19,4 +25,7 @@
             <version>${project.version}</version>
         </dependency>
     </dependencies>
+
+
+
 </project>
