@@ -1,4 +1,4 @@
-package fr.pawo.partners.cdl.business.groupe;
+package fr.pawo.partners.cdl.business.service.groupe;
 
 import fr.pawo.partners.cdl.core.domain.Groupe;
 import fr.pawo.partners.cdl.core.repository.GroupeRepository;
