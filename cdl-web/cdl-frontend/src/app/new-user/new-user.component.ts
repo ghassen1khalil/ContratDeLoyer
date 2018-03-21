@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Authentification} from "../../service/authentification";
+import {Router} from "@angular/router";
+import {UserService} from "../../service/user.service";
+import {RoleService} from "../../service/role.service";
 
 @Component({
   selector: 'app-new-user',
@@ -7,18 +9,32 @@ import {Authentification} from "../../service/authentification";
   styleUrls: ['./new-user.component.css']
 })
 export class NewUserComponent implements OnInit {
-  user:any;
-  constructor(private authService:Authentification ) { }
-  constructor() { }
+  roles:any;
+  newUser:any
+  constructor(private roleService:RoleService,private userService:UserService , private router:Router ) { }
 
   ngOnInit() {
+    this.roleService.getRoles()
+      .subscribe(data=> {
+          this.roles  = data;
+          console.log(this.roles)
+        },
+        err=>{
+          console.log(err);
+        })
   }
 
   onSaveUser(user) {
-    this.authService.saveUser(user)
+    this.newUser = {
+      userName: user.userName,
+      password: user.password,
+      role:{"idRole": user.idRole}
+    }
+    this.userService.saveUser(this.newUser)
       .subscribe(resp => {
-        this.user = resp;
-      }, err => {
+        this.newUser = resp;
+      },
+          err => {
 
         console.log(err);
       })

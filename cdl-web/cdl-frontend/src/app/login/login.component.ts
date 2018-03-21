@@ -12,13 +12,15 @@ export class LoginComponent implements OnInit {
   constructor(private authService:Authentification, private router:Router) { }
 
   ngOnInit() {
+    if (this.authService.open()==true){
+      this.router.navigateByUrl("/user");
+    }
   }
 
   onLogin(user){
     this.authService.login(user)
       .subscribe(resp=>{
           let jwt = resp.headers.get('Authorization');
-          // console.log(jwt)
           this.authService.saveToken(jwt);
           this.router.navigateByUrl("/user")
         },

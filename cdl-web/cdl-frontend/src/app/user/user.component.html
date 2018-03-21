@@ -1,12 +1,11 @@
 <div class="container">
-  <button class="btn btn-danger" (click)="onNewUser()" *ngIf="authService.isAdmin()"> new user</button>
-  <br/><br/>
   <table class="table table-striped">
-    <tr>
-      <th>ID</th><th>User Name</th>
+
+      <th>ID</th><th>User Name</th><th>Role</th>
     <tr *ngFor="let u of users">
-      <td>{{u.idUser}}</td>
-      <td>{{u.userName}}</td>
+      <td><span *ngFor="let y of u.user">{{y.idUser}}<br></span> </td>
+      <td><span *ngFor="let y of u.user">{{y.userName}}<br></span></td>
+      <td>{{u.roleName}}</td>
     </tr>
   </table>
 </div>

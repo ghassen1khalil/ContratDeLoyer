@@ -1,13 +1,17 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {JwtHelper} from "angular2-jwt";
-
+import "rxjs/add/operator/map";
+import {Router} from "@angular/router";
 @Injectable()
 export class Authentification{
-  private host:string="http://127.0.0.1:8085";
-  private jwtToken=null;
-  private role:Array<>="USER";
-  constructor(private http:HttpClient){
+  public host:string="http://127.0.0.1:8085";
+  public jwtToken=null;
+  public role:Array<any>;
+  public twj2;
+  public roleName;
+  public userName;
+  constructor(private http:HttpClient,private router:Router){
 
   }
   login(user){
@@ -20,29 +24,44 @@ export class Authentification{
     let jwtHelper=new JwtHelper();
     this.role=jwtHelper.decodeToken(this.jwtToken).role;
   }
-  getUsers(){
-    if(this.jwtToken==null) this.loadToken();
-    return this.http.get(this.host+"/user",
-      {headers : new HttpHeaders({"Authorization":this.jwtToken})});
-  }
+
+
   loadToken(){
     this.jwtToken=localStorage.getItem('token')
   }
-  logout(){
-    this.jwtToken=null;
-    localStorage.removeItem('token');
+   logout(){
+     this.jwtToken=null;
+     this.active=false;
+     localStorage.removeItem('token');
+     this.router.navigateByUrl("/login")
   }
-
+  onLogout(){
+     this.logout();
+     this.router.navigateByUrl('/login')
+  }
   isAdmin(){
-
-    for(let r of this.role){
-      if ( r.authority=='ADMIN') return true;
+    this.twj2 =localStorage.getItem('token');
+    if (this.twj2!=null){
+    let jwtHelper=new JwtHelper();
+    this.roleName=jwtHelper.decodeToken(this.twj2).role
+    for ( let r of this.roleName){
+        if(r.authority=="ADMIN"|r.authority=="SUPER_ADMIN") return true;
+    }
+    return false;
     }
     return false;
 
   }
 
-  saveUser(user){
-    return this.http.post(this.host+"/user",user,{headers:new HttpHeaders({'Authorization':this.jwtToken})});
+  getName(){
+    let jwtHelper=new JwtHelper();
+    return this.userName=jwtHelper.decodeToken(this.twj2).sub
   }
+
+  open(){
+    if(localStorage.getItem('token')==null)
+      return false;
+    return true;
+  }
+
 }

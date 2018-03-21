@@ -7,7 +7,7 @@ import {Authentification} from "../service/authentification";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
   title = 'app';
   constructor(public authService:Authentification, private router:Router) { }
 

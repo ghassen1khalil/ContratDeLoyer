@@ -10,6 +10,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class AccountServiceImpl implements AccountService {
@@ -33,6 +35,16 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public AppRole saveRole(AppRole role) {
         return roleRepository.save(role);
+    }
+
+    @Override
+    public List<AppRole> getAllRole() {
+        return this.roleRepository.findAll();
+    }
+
+    @Override
+    public List<AppUser> getAllUser() {
+        return this.userRepository.findAll();
     }
 
     @Override

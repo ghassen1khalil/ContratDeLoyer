@@ -1,5 +1,35 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div class="container">
-  <button class="btn btn-danger" routerLink="user" *ngIf="authService.isAdmin()"> user</button>
-</div>
+<nav *ngIf="authService.open()" class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">PAWO-PARTNERS</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a *ngIf="authService.isAdmin()" routerLink="new-user">New User<span class="sr-only">(current)</span></a></li>
+        <li><a *ngIf="authService.isAdmin()" routerLink="new-role">New Role</a></li>
+        <li><a routerLink="user">List User</a></li>
+        <li><a routerLink="role">List Role</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{authService.getName()}} <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><button style="border: none" class="btn btn-default" (click)="authService.onLogout()">Logout</button></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+
+</nav>
 <router-outlet></router-outlet>
+
