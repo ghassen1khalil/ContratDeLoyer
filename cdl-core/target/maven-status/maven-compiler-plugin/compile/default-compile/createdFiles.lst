@@ -1,0 +1,7 @@
+fr\pawo\partners\cdl\core\domain\AppUser.class
+fr\pawo\partners\cdl\core\repository\GroupeRepository.class
+fr\pawo\partners\cdl\core\repository\UserRepository.class
+fr\pawo\partners\cdl\core\config\CoreConfig.class
+fr\pawo\partners\cdl\core\domain\AppRole.class
+fr\pawo\partners\cdl\core\domain\Groupe.class
+fr\pawo\partners\cdl\core\repository\RoleRepository.class
