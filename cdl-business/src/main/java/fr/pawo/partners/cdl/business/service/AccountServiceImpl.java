@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -46,6 +47,42 @@ public class AccountServiceImpl implements AccountService {
     public List<AppUser> getAllUser() {
         return this.userRepository.findAll();
     }
+
+    @Override
+    public AppRole updateRole(Long idRole,AppRole role) {
+       role.setIdRole(idRole);
+       return roleRepository.save(role);
+    }
+
+    @Override
+    public void deleteRole(Long idRole) {
+          this.roleRepository.deleteById(idRole);
+    }
+
+    @Override
+    public AppRole getRole(Long idRole) {
+        AppRole role =this.roleRepository.getOne(idRole);
+        System.out.println(role);
+        return role;
+    }
+    @Override
+    public AppUser updateUser(Long idUser,AppUser user) {
+        user.setIdUser(idUser);
+        return userRepository.save(user);
+    }
+
+    @Override
+    public void deleteUser(Long idUser) {
+        this.userRepository.deleteById(idUser);
+    }
+
+    @Override
+    public AppUser getUser(Long idUser) {
+        AppUser  user =this.userRepository.getOne(idUser);
+        System.out.println(user);
+        return user;
+    }
+
 
     @Override
     public void addRoleToUser(AppUser user, AppRole role) {

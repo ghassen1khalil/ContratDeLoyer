@@ -31,7 +31,6 @@ export class Authentification{
   }
    logout(){
      this.jwtToken=null;
-     this.active=false;
      localStorage.removeItem('token');
      this.router.navigateByUrl("/login")
   }
@@ -45,7 +44,7 @@ export class Authentification{
     let jwtHelper=new JwtHelper();
     this.roleName=jwtHelper.decodeToken(this.twj2).role
     for ( let r of this.roleName){
-        if(r.authority=="ADMIN"|r.authority=="SUPER_ADMIN") return true;
+        if(r.authority=="ADMIN"||r.authority=="SUPER_ADMIN") return true;
     }
     return false;
     }

@@ -1,7 +1,7 @@
 package fr.pawo.partners.cdl.business.groupe;
 
-import fr.pawo.partners.cdl.core.domain.Groupe;
 
+import fr.pawo.partners.cdl.core.domain.Groupe;
 import java.util.List;
 import java.util.Optional;
 

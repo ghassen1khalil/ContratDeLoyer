@@ -13,8 +13,20 @@ export class UserService {
     return this.http.get(this.authService.host+"/role",
       {headers : new HttpHeaders({"Authorization":this.authService.jwtToken})});
   }
+  getUser(id){
+    if(this.authService.jwtToken==null) this.authService.loadToken();
+    return this.http.get(this.authService.host+"/user/"+id,
+      {headers : new HttpHeaders({"Authorization":this.authService.jwtToken})});
+  }
 
   saveUser(user){
     return this.http.post(this.authService.host+"/user",user,{headers:new HttpHeaders({'Authorization':this.authService.jwtToken})});
+  }
+
+  updateUser(role){
+    return this.http.put(this.authService.host+"/user/"+user.idUser,user,{headers:new HttpHeaders({'Authorization':this.authService.jwtToken})});
+  }
+  deleteUser(id){
+    return this.http.delete(this.authService.host+"/user/"+id,{headers:new HttpHeaders({'Authorization':this.authService.jwtToken})});
   }
 }

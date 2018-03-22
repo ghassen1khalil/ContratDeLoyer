@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Authentification} from "../../service/authentification";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {RoleService} from "../../service/role.service";
 import {UserService} from "../../service/user.service";
 
@@ -11,7 +11,9 @@ import {UserService} from "../../service/user.service";
 })
 export class RoleComponent implements OnInit {
   roles;
-  constructor(private roleService:RoleService, private router:Router) { }
+  constructor(private roleService:RoleService, private router:Router) {
+
+  }
 
   ngOnInit() {
     this.roleService.getRoles()
@@ -24,8 +26,20 @@ export class RoleComponent implements OnInit {
         })
   }
 
-  onNewRole(){
-    this.router.navigateByUrl('/new-role')
+  OnUpdateRole(idRole:number){
+    this.router.navigateByUrl('update-role/'+idRole);
   }
+
+  OnDeleteRole(idRole:number){
+    this.roleService.deleteRole(idRole)
+      .subscribe(data=> {
+          window.location.reload();
+        },
+        err=>{
+          console.log(err);
+        })
+
+  }
+
 
 }

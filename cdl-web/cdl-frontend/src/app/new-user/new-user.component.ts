@@ -33,9 +33,9 @@ export class NewUserComponent implements OnInit {
     this.userService.saveUser(this.newUser)
       .subscribe(resp => {
         this.newUser = resp;
+        this.router.navigateByUrl('/user');
       },
           err => {
-
         console.log(err);
       })
   }

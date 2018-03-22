@@ -3,10 +3,7 @@ package fr.pawo.partners.cdl.rest.controller;
 import fr.pawo.partners.cdl.business.service.AccountService;
 import fr.pawo.partners.cdl.core.domain.AppUser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
@@ -26,4 +23,8 @@ public class UserController {
         accountService.saveUser(user);
     }
 
+    @PutMapping
+    public void updateUser(){
+
+    }
 }

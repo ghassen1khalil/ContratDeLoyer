@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Authentification} from "../../service/authentification";
 import {RoleService} from "../../service/role.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-new-role',
@@ -9,7 +10,7 @@ import {RoleService} from "../../service/role.service";
 })
 export class NewRoleComponent implements OnInit {
   roleName:any;
-  constructor(private roleService:RoleService ) { }
+  constructor(private roleService:RoleService,private router:Router) { }
 
   ngOnInit() {
   }
@@ -18,7 +19,7 @@ export class NewRoleComponent implements OnInit {
     this.roleService.saveRole(role)
       .subscribe(resp => {
         this.roleName = resp;
-        console.log(role);
+        this.router.navigateByUrl('/role');
       }, err => {
 
         console.log(role);

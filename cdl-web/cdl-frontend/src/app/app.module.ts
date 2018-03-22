@@ -15,6 +15,8 @@ import { RoleComponent } from './role/role.component';
 import { NewRoleComponent } from './new-role/new-role.component';
 import {RoleService} from "../service/role.service";
 import {UserService} from "../service/user.service";
+import { UpdateRoleComponent } from './update-role/update-role.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 const appRoutes:Routes=[
   {path:"login",component:LoginComponent},
@@ -22,6 +24,8 @@ const appRoutes:Routes=[
   {path:"role",component:RoleComponent},
   {path:"new-user",component:NewUserComponent},
   {path:"new-role",component:NewRoleComponent},
+  {path:"update-role/:id",component:UpdateRoleComponent},
+  {path:"update-user/:id",component:UpdateUserComponent},
   {path:"",redirectTo:"/login",pathMatch:'full'}
 ];
 @NgModule({
@@ -32,6 +36,8 @@ const appRoutes:Routes=[
     NewUserComponent,
     RoleComponent,
     NewRoleComponent,
+    UpdateRoleComponent,
+    UpdateUserComponent,
 
   ],
   imports: [

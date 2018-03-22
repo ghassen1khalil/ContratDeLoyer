@@ -1,0 +1,4 @@
+fr\pawo\partners\cdl\rest\controller\UserController.class
+fr\pawo\partners\cdl\rest\controller\HelloRestController.class
+fr\pawo\partners\cdl\rest\controller\RoleController.class
+fr\pawo\partners\cdl\rest\config\RestConfig.class
