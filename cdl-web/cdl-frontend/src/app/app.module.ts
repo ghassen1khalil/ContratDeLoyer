@@ -17,11 +17,16 @@ import {RoleService} from "../service/role.service";
 import {UserService} from "../service/user.service";
 import { UpdateRoleComponent } from './update-role/update-role.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { GroupeComponent } from './groupe/groupe.component';
+import { NewGroupeComponent } from './new-groupe/new-groupe.component';
+import {GroupeService} from "../service/groupe.service";
 
 const appRoutes:Routes=[
   {path:"login",component:LoginComponent},
   {path:"user",component:UserComponent},
   {path:"role",component:RoleComponent},
+  {path:"groupe",component:GroupeComponent},
+  {path:"new-groupe",component:NewGroupeComponent},
   {path:"new-user",component:NewUserComponent},
   {path:"new-role",component:NewRoleComponent},
   {path:"update-role/:id",component:UpdateRoleComponent},
@@ -38,13 +43,15 @@ const appRoutes:Routes=[
     NewRoleComponent,
     UpdateRoleComponent,
     UpdateUserComponent,
+    GroupeComponent,
+    NewGroupeComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,RouterModule.forRoot(appRoutes),FormsModule,HttpClientModule
   ],
-  providers: [Authentification,RoleService,UserService],
+  providers: [Authentification,RoleService,UserService,GroupeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

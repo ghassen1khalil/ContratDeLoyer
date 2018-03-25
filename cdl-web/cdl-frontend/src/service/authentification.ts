@@ -5,7 +5,7 @@ import "rxjs/add/operator/map";
 import {Router} from "@angular/router";
 @Injectable()
 export class Authentification{
-  public host:string="http://127.0.0.1:8085";
+  public host:string="http://127.0.0.1:8080";
   public jwtToken=null;
   public role:Array<any>;
   public twj2;
@@ -50,6 +50,18 @@ export class Authentification{
     }
     return false;
 
+  }
+  isSuperAdmin(){
+    this.twj2 =localStorage.getItem('token');
+    if (this.twj2!=null){
+      let jwtHelper=new JwtHelper();
+      this.roleName=jwtHelper.decodeToken(this.twj2).role
+      for ( let r of this.roleName){
+        if(r.authority=="SUPER_ADMIN") return true;
+      }
+      return false;
+    }
+    return false;
   }
 
   getName(){

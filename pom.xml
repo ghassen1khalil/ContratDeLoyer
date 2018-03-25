@@ -54,8 +54,9 @@
 
     </dependencies>
     </dependencyManagement>
-    <dependencies>
 
+
+    <dependencies>
         <!-- https://mvnrepository.com/artifact/com.sun.jersey/jersey-server -->
         <dependency>
             <groupId>com.sun.jersey</groupId>
@@ -75,8 +76,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-
-
 
         <!-- TODO : configurer Spring Security avec le front-->
         <dependency>

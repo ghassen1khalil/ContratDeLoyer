@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,18 +23,17 @@ public class AppUser implements Serializable {
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_groupe", joinColumns = @JoinColumn(name = "idUser"),
             inverseJoinColumns = @JoinColumn(name = "idGroupe"))
-    private List<Groupe> groupes;
+    private List<Groupe> groupes = new ArrayList<>();
 
 
     public AppUser() {
     }
 
-    public AppUser(Long idUser, String userName, String password, boolean active, AppRole role, List<Groupe> groupes) {
+    public AppUser(Long idUser, String userName, String password, boolean active, AppRole role) {
         this.userName = userName;
         this.password = password;
         this.active = active;
         this.role = role;
-        this.groupes = groupes;
         this.idUser = idUser;
     }
 
@@ -77,7 +77,7 @@ public class AppUser implements Serializable {
     public void setRole(AppRole role) {
         this.role = role;
     }
-
+    @JsonIgnore
     public List<Groupe> getGroupes() {
         return groupes;
     }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {Authentification} from "../../service/authentification";
 import {UserService} from "../../service/user.service";
+import {RoleService} from "../../service/role.service";
 
 @Component({
   selector: 'app-user',
@@ -11,11 +11,11 @@ import {UserService} from "../../service/user.service";
 export class UserComponent implements OnInit {
   users;
   newUser;
-  constructor(private userService:UserService, private router:Router) { }
+  constructor(private userService:UserService,private roleService:RoleService, private router:Router) { }
 
   ngOnInit() {
 
-    this.userService.getUsers()
+    this.roleService.getRoles()
       .subscribe(data=> {
           this.users  = data;
           console.log(this.users);

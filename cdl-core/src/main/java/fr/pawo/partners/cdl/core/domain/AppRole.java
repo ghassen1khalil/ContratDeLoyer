@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,6 +23,6 @@ public class AppRole {
     private Long idRole;
     private String roleName;
     @OneToMany(mappedBy = "role")
-    private List<AppUser> user;
+    private List<AppUser> user = new ArrayList<>();
 
 }

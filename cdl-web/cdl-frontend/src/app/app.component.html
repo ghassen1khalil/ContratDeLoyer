@@ -14,10 +14,12 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a *ngIf="authService.isAdmin()" routerLink="new-user">New User<span class="sr-only">(current)</span></a></li>
-        <li><a *ngIf="authService.isAdmin()" routerLink="new-role">New Role</a></li>
         <li><a routerLink="user">List User</a></li>
         <li><a routerLink="role">List Role</a></li>
+        <li><a *ngIf="authService.isSuperAdmin()" routerLink="groupe">List Groupe</a></li>
+        <li><a *ngIf="authService.isAdmin()" routerLink="new-user">New User</a></li>
+        <li><a *ngIf="authService.isAdmin()" routerLink="new-role">New Role</a></li>
+        <li><a *ngIf="authService.isSuperAdmin()" routerLink="new-role">New Groupe</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">

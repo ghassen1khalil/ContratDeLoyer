@@ -10,7 +10,7 @@ export class UserService {
 
   getUsers(){
     if(this.authService.jwtToken==null) this.authService.loadToken();
-    return this.http.get(this.authService.host+"/role",
+    return this.http.get(this.authService.host+"/user",
       {headers : new HttpHeaders({"Authorization":this.authService.jwtToken})});
   }
   getUser(id){
@@ -23,7 +23,7 @@ export class UserService {
     return this.http.post(this.authService.host+"/user",user,{headers:new HttpHeaders({'Authorization':this.authService.jwtToken})});
   }
 
-  updateUser(role){
+  updateUser(user){
     return this.http.put(this.authService.host+"/user/"+user.idUser,user,{headers:new HttpHeaders({'Authorization':this.authService.jwtToken})});
   }
   deleteUser(id){

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,5 +21,5 @@ public class Groupe implements Serializable {
     private String label;
 
     @ManyToMany(mappedBy = "groupes")
-    private List<AppUser> users;
+    private List<AppUser> users = new ArrayList<>();
 }

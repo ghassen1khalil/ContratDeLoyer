@@ -13,8 +13,10 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Date;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
@@ -35,10 +37,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("*******");
-        System.out.println("username: " + appUser.getUserName());
-        System.out.println("password: " + appUser.getPassword());
-        System.out.println("*******");
         return authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(appUser.getUserName(), appUser.getPassword()));
     }
@@ -48,6 +46,8 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                                             FilterChain chain,
                                             Authentication authResult) {
         User springUser = (User) authResult.getPrincipal();
+        System.out.println(springUser.getUsername());
+        System.out.println(springUser.getPassword());
         String jwt = Jwts.builder()
                 .setSubject(springUser.getUsername())
                 .setExpiration(new Date(System.currentTimeMillis() + SecurityConstants.EXPIRATION_TIME))
@@ -57,4 +57,13 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         response.addHeader(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX + jwt);
     }
 
+    @Override
+    protected void unsuccessfulAuthentication(HttpServletRequest request,
+                                              HttpServletResponse response,
+                                              AuthenticationException failed)
+                                          throws IOException, ServletException {
+        super.unsuccessfulAuthentication(request, response, failed);
+        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+
+    }
 }
