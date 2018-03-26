@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {GroupeService} from "../../service/groupe.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-groupe',
@@ -8,7 +9,7 @@ import {GroupeService} from "../../service/groupe.service";
 })
 export class GroupeComponent implements OnInit {
    private groupes;
-  constructor(public groupeService:GroupeService) { }
+  constructor(public groupeService:GroupeService,public router:Router) { }
 
   ngOnInit() {
     this.groupeService.getGroupes()
@@ -19,6 +20,22 @@ export class GroupeComponent implements OnInit {
         err=>{
           console.log(err);
         })
+  }
+
+  OnUpdateGroupe(idGroupe:number){
+    this.router.navigateByUrl('update-groupe/'+idGroupe);
+  }
+
+
+  OnDeleteGroupe(idGroupe:number){
+    this.groupeService.deleteGroupe(idGroupe)
+      .subscribe(data=> {
+          window.location.reload();
+        },
+        err=>{
+          console.log(err);
+        })
+
   }
 
 }

@@ -35,16 +35,4 @@ export class UpdateRoleComponent implements OnInit {
         alert("Error ");
         });
   }
-
-  deleteRole(){
-    this.roleService.deleteRole(this.role)
-      .subscribe(data=>{
-          alert("delete Successfully")
-          this.route.navigateByUrl("/role");
-        },
-        err=>{
-          console.log(this.role);
-          alert("Error ");
-        });
-  }
 }

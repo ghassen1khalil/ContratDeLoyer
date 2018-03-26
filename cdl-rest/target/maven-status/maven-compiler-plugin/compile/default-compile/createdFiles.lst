@@ -1,4 +1,9 @@
 fr\pawo\partners\cdl\rest\controller\UserController.class
-fr\pawo\partners\cdl\rest\controller\HelloRestController.class
+fr\pawo\partners\cdl\rest\service\AccountService.class
+fr\pawo\partners\cdl\rest\controller\GroupeController.class
 fr\pawo\partners\cdl\rest\controller\RoleController.class
 fr\pawo\partners\cdl\rest\config\RestConfig.class
+fr\pawo\partners\cdl\rest\service\GroupeServiceImpl.class
+fr\pawo\partners\cdl\rest\service\UserDetailsServiceImpl.class
+fr\pawo\partners\cdl\rest\service\AccountServiceImpl.class
+fr\pawo\partners\cdl\rest\service\GroupeService.class

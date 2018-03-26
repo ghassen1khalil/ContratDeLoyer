@@ -21,7 +21,6 @@ export class NewRoleComponent implements OnInit {
         this.roleName = resp;
         this.router.navigateByUrl('/role');
       }, err => {
-
         console.log(role);
       })
   }

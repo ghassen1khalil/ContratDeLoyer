@@ -1,10 +1,5 @@
-fr\pawo\partners\cdl\business\service\security\JWTAuthenticationFilter.class
 fr\pawo\partners\cdl\business\config\BusinessConfig.class
-fr\pawo\partners\cdl\business\service\AccountService.class
-fr\pawo\partners\cdl\business\service\security\SecurityConstants.class
-fr\pawo\partners\cdl\business\service\security\JWTAuthorizationFilter.class
+fr\pawo\partners\cdl\business\security\SecurityConstants.class
+fr\pawo\partners\cdl\business\security\JWTAuthorizationFilter.class
+fr\pawo\partners\cdl\business\security\JWTAuthenticationFilter.class
 fr\pawo\partners\cdl\business\config\SecurityConfig.class
-fr\pawo\partners\cdl\business\groupe\GroupeServiceImpl.class
-fr\pawo\partners\cdl\business\service\AccountServiceImpl.class
-fr\pawo\partners\cdl\business\service\UserDetailsServiceImpl.class
-fr\pawo\partners\cdl\business\groupe\GroupeService.class

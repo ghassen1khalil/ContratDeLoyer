@@ -1,6 +1,6 @@
 package fr.pawo.partners.cdl.rest.controller;
 
-import fr.pawo.partners.cdl.business.groupe.GroupeService;
+import fr.pawo.partners.cdl.rest.service.GroupeService;
 import fr.pawo.partners.cdl.core.domain.Groupe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

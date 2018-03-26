@@ -1,14 +1,15 @@
 <div class="container">
   <table class="table table-striped">
 
-      <th>ID</th><th>User Name</th><th>Role</th><th>Action</th>
+      <th>ID</th><th>User Name</th><th>Role</th><th>Groupe</th><th>Action</th>
     <tr *ngFor="let u of users">
-      <td><span *ngFor="let y of u.user">{{y.idUser}}<br></span> </td>
-      <td><span *ngFor="let y of u.user">{{y.userName}}<br></span></td>
-      <td>{{u.roleName}}</td>
+      <td>{{u.idUser}}</td>
+      <td>{{u.userName}}</td>
+      <td>{{u.role.roleName}}</td>
+      <td><span *ngFor="let g of u.groupes"  >{{g.label}}<br></span></td>
       <td colspan="2">
-        <button class="btn btn-default">Update</button>
-        <button class="btn btn-default">Delete</button>
+        <button (click)="OnUpdateUser(u.idUser)" class="btn btn-default">Update</button>
+        <button onclick="return confirm('Are you sure')" (click)="OnDeleteUser(u.idUser)" class="btn btn-default">Delete</button>
       </td>
     </tr>
   </table>

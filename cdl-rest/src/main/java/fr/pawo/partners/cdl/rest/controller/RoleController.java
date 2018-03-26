@@ -1,7 +1,7 @@
 package fr.pawo.partners.cdl.rest.controller;
 
 
-import fr.pawo.partners.cdl.business.service.AccountService;
+import fr.pawo.partners.cdl.rest.service.AccountService;
 import fr.pawo.partners.cdl.core.domain.AppRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +31,7 @@ public class RoleController {
     public void saveRole(@RequestBody AppRole role){
         this.accountService.saveRole(role);
     }
+
     @PutMapping("/role/{id}")
     public AppRole updateRole(@PathVariable(value = "id") Long idRole,
                            @Valid @RequestBody AppRole role){

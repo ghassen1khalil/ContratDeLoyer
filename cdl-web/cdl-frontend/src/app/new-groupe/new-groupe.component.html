@@ -1,3 +1,18 @@
-<p>
-  new-groupe works!
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">New Groupe</div>
+      <div class="panel-body">
+        <form #f="ngForm" (ngSubmit)="onSaveGroupe(f.value)">
+          <div class="form-group">
+            <label class="control-label"> Groupe Name:</label>
+            <input class="form-control" type="text" name="label" ngModel="" required>
+          </div>
+          <button class="btn btn-danger" type="submit" >save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+</div>

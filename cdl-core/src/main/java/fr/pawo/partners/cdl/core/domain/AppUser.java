@@ -1,8 +1,10 @@
 package fr.pawo.partners.cdl.core.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,9 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Data
+@AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+
 public class AppUser implements Serializable {
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUser;
     private String userName;
     private String password;
@@ -23,66 +29,17 @@ public class AppUser implements Serializable {
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_groupe", joinColumns = @JoinColumn(name = "idUser"),
             inverseJoinColumns = @JoinColumn(name = "idGroupe"))
-    private List<Groupe> groupes = new ArrayList<>();
+    private List<Groupe> groupes= new ArrayList<>();
 
 
     public AppUser() {
     }
 
-    public AppUser(Long idUser, String userName, String password, boolean active, AppRole role) {
+    public AppUser(String userName, String password, boolean active, AppRole role) {
         this.userName = userName;
         this.password = password;
         this.active = active;
         this.role = role;
-        this.idUser = idUser;
     }
 
-    public Long getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(Long idUser) {
-        this.idUser = idUser;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
-    @JsonIgnore
-    public AppRole getRole() {
-        return role;
-    }
-    @JsonSetter
-    public void setRole(AppRole role) {
-        this.role = role;
-    }
-    @JsonIgnore
-    public List<Groupe> getGroupes() {
-        return groupes;
-    }
-
-    public void setGroupes(List<Groupe> groupes) {
-        this.groupes = groupes;
-    }
 }

@@ -1,20 +1,18 @@
 <div class="row">
   <div class="col-md-6">
     <div class="panel">
-      <div class="panel-heading" new user></div>
+      <div class="panel-heading" Update User></div>
       <div class="panel-body">
-        <form #f="ngForm" (ngSubmit)="onSaveUser(f.value)">
+        <form #f="ngForm" (ngSubmit)="updateUser(f.value)">
           <div class="form-group">
             <label class="control-label"> User Name:</label>
             <input class="form-control" type="text" name="userName" [(ngModel)]="user.userName"required>
             <label class="control-label"> Password:</label>
-            <input class="form-control" type="text" name="password" [(ngModel)]="user.password" required>
-            <select ngModel=""  name="idRole">
+            <input class="form-control" type="text" name="password" ngModel="" required>
+            <select  name="idRole">
               <option *ngFor="let r of roles" value={{r.idRole}} >{{r.roleName}}</option>
             </select>
           </div>
-
-
           <button class="btn btn-danger" type="submit" >save</button>
         </form>
       </div>

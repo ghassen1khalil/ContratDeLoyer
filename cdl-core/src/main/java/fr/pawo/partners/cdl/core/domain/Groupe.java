@@ -1,5 +1,6 @@
 package fr.pawo.partners.cdl.core.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,15 @@ public class Groupe implements Serializable {
     private Long idGroupe;
 
     private String label;
-
     @ManyToMany(mappedBy = "groupes")
-    private List<AppUser> users = new ArrayList<>();
+    private List<AppUser> users= new ArrayList<>();
+
+    public Groupe(String label) {
+        this.label = label;
+    }
+
+    @JsonIgnore
+    public List<AppUser> getUsers() {
+        return users;
+    }
 }

@@ -11,11 +11,11 @@ import {RoleService} from "../../service/role.service";
 export class UserComponent implements OnInit {
   users;
   newUser;
-  constructor(private userService:UserService,private roleService:RoleService, private router:Router) { }
+  constructor(private userService:UserService, private router:Router) { }
 
   ngOnInit() {
 
-    this.roleService.getRoles()
+    this.userService.getUsers()
       .subscribe(data=> {
           this.users  = data;
           console.log(this.users);

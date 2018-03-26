@@ -20,6 +20,7 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { GroupeComponent } from './groupe/groupe.component';
 import { NewGroupeComponent } from './new-groupe/new-groupe.component';
 import {GroupeService} from "../service/groupe.service";
+import { UpdateGroupeComponent } from './update-groupe/update-groupe.component';
 
 const appRoutes:Routes=[
   {path:"login",component:LoginComponent},
@@ -31,6 +32,7 @@ const appRoutes:Routes=[
   {path:"new-role",component:NewRoleComponent},
   {path:"update-role/:id",component:UpdateRoleComponent},
   {path:"update-user/:id",component:UpdateUserComponent},
+  {path:"update-groupe/:id",component:UpdateGroupeComponent},
   {path:"",redirectTo:"/login",pathMatch:'full'}
 ];
 @NgModule({
@@ -45,6 +47,7 @@ const appRoutes:Routes=[
     UpdateUserComponent,
     GroupeComponent,
     NewGroupeComponent,
+    UpdateGroupeComponent,
 
   ],
   imports: [
