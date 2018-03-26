@@ -6,7 +6,7 @@
 .idea/gradle.xml
 .idea/dictionaries
 .idea/libraries
-out/
-target/
-*/target/**
+.DS_Store
+*.DS_Store
+/*/target/*
 
